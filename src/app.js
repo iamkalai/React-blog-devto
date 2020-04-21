@@ -2,14 +2,18 @@ import React from 'react';
 import Home from './home';
 import ArticleApp from './article';
 import BlogHeader from './header';
-import { Route } from 'react-router-dom';
+import PageNotFound from './pagenotfound';
+import { Route, Switch } from 'react-router-dom';
 
 const App = () => {
     return (
         <>
             <BlogHeader />
-            <Route path="/" exact component={Home} />
-            <Route path="/article" component={ArticleApp} />
+            <Switch>
+                <Route path="/" exact component={Home} />
+                <Route path="/article/:articleID" component={ArticleApp} />
+                <Route component={PageNotFound} />
+            </Switch>
         </>
 
     );

@@ -1,14 +1,14 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const bloggerName = 'Kalaiarasan Pushpanathan';
 
 const BlogHeader = () => {
     return (
         <header>
-            <a href="./">Blog - <span className="name">{bloggerName}</span></a>
+            <Link to="/">Blog - <span className="name">{bloggerName}</span></Link>
         </header>
     );
 }
-
 
 export default BlogHeader;

@@ -2,6 +2,7 @@ import React from 'react';
 import './home.css';
 import './style.css';
 import './custom_font.css';
+import { Link } from 'react-router-dom';
 
 const username = 'iamkalai';
 const perPage = 100; //If you have more articles, increase this or add pagination
@@ -32,10 +33,10 @@ const ListArticles = () => {
 const ArticleTiles = (props) => {
     return (
         <li key={props.data.id}>
-            <a href={`article?id=${props.data.id}`} className="url">
+            <Link to={`/article/${props.data.id}`} className="url">
                 <img src={(props.data.cover_image) ? props.data.cover_image : require('../src/assets/images/placeholder.jpg')} className="cover" alt="cover" />
                 <h3 className="title">{props.data.title}</h3>
-            </a>
+            </Link>
         </li>
     );
 }

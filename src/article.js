@@ -12,13 +12,11 @@ const speedup = () => {
     document.documentElement.style.setProperty('--user-img-speed', speed);
 }
 
-const ArticleTile = () => {
+const ArticleTile = (props) => {
     const [article, setArticle] = React.useState({});
 
     const getDevArticle = async () => {
-        const searchParams = new URLSearchParams(window.location.search);
-        const id = searchParams.get('id');
-        //const id = '305550'
+        const id = props.articleID;
         const response = await fetch(`https://dev.to/api/articles/${id}`);
         const data = await response.json();
         setArticle(data);
@@ -75,9 +73,9 @@ const ArticleTags = (props) => {
     );
 }
 
-const ArticleApp = () => {
+const ArticleApp = (props) => {
     return (
-        <ArticleTile />
+        <ArticleTile articleID={props.match.params.articleID} />
     );
 }
 
